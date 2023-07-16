@@ -5,7 +5,7 @@ const {errorHandler} = require('./middleware/errorMiddleware');
 const connetDb = require('./config/db');
 const colors = require('colors');
 
-// const port = process.env.PORT || 8000
+const port = process.env.PORT 
 const app = express();
 
 app.get('/',(reg,res)=>{
@@ -23,7 +23,7 @@ app.use('/api/users',require('./routes/userRouts'))
 
 app.use(errorHandler);
 
-// app.listen (port , ()=>{
-//     console.log(`the app is running on http://localhost:${port}`)
-// })
+app.listen (port , ()=>{
+    console.log(`the app is running on http://localhost:${port}`)
+})
 
