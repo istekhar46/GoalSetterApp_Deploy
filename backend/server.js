@@ -2,6 +2,7 @@ const express = require('express');
 const { json } = require('stream/consumers');
 const dotenv = require('dotenv').config();
 const { errorHandler } = require('./middleware/errorMiddleware');
+const cors = require('cors');
 const connetDb = require('./config/db');
 const colors = require('colors');
 
@@ -19,7 +20,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(
     cors({
-        origin: 'https://goalsetter-client.onrender.com/'
+        origin: ['http//localhost:3000','https://goalsetter-client.onrender.com/']
     })
 )
 
