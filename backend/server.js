@@ -6,25 +6,23 @@ const cors = require('cors');
 const connetDb = require('./config/db');
 const colors = require('colors');
 
-const port = process.env.PORT
+const port = process.env.PORT || 8000
 const app = express();
-
-app.get('/', (reg, res) => {
-    res.send("Hello server!!")
-})
-
-
 connetDb();
+
+
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(
     cors({
-        origin: ['http//localhost:3000','https://goalsetter-client.onrender.com/']
+        origin: ['http://localhost:3000', 'https://goalsetter-client.onrender.com/']
     })
 )
 
 
+app.get('/', (reg, res) => { res.send("Hello server!!") })
 app.use('/api/goals', require('./routes/goalRouts'))
 app.use('/api/users', require('./routes/userRouts'))
 
