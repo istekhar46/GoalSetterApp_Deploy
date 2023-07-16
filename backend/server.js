@@ -1,14 +1,14 @@
 const express = require('express');
 const { json } = require('stream/consumers');
 const dotenv = require('dotenv').config();
-const {errorHandler} = require('./middleware/errorMiddleware');
+const { errorHandler } = require('./middleware/errorMiddleware');
 const connetDb = require('./config/db');
 const colors = require('colors');
 
-const port = process.env.PORT 
+const port = process.env.PORT
 const app = express();
 
-app.get('/',(reg,res)=>{
+app.get('/', (reg, res) => {
     res.send("Hello server!!")
 })
 
@@ -16,14 +16,20 @@ app.get('/',(reg,res)=>{
 connetDb();
 
 app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }))
+app.use(
+    cors({
+        origin: 'https://goalsetter-client.onrender.com/'
+    })
+)
 
-app.use('/api/goals',require('./routes/goalRouts'))
-app.use('/api/users',require('./routes/userRouts'))
+
+app.use('/api/goals', require('./routes/goalRouts'))
+app.use('/api/users', require('./routes/userRouts'))
 
 app.use(errorHandler);
 
-app.listen (port , ()=>{
+app.listen(port, () => {
     console.log(`the app is running on http://localhost:${port}`)
 })
 
