@@ -7,7 +7,6 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix frontend",
-    "build" : "npm install",
     "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "author": "istekhar",
