@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Header from './component/Header';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './component/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
           </Routes>
+          <Footer/>
         </div>
       </Router>
     </>
