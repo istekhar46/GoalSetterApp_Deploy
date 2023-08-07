@@ -1,9 +1,8 @@
 
 function spinner() {
   return (
-    <div className="loadingSpinnerContainar">
-        <div className="loadingSpinner"></div>
-    </div>
+    
+        <div className="loadingSpinner" style={{position:"absolute", top:'50%', left:'50%'}}></div>
   )
 }
 
